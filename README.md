@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Lagom
 
 > #### *Lagom* is a Swedish word with no direct English equivalent, meaning "just the right amount"
@@ -75,3 +76,7 @@ run into trouble or have suggestions. Pull Requests always welcome.
 [pages]: http://pages.github.com
 [twitter]: https://twitter.com/_swanson
 [pages]: https://github.com/github/pages-gem
+=======
+# d0v1k.github.io
+My Personal Blog
+>>>>>>> cba4519ba70d5acd5f79d76578f3e75e7e5bd9b7
