@@ -22,11 +22,13 @@ Create a file called disqus.html in Jekyll’s _includes folder and add your Dis
 {% if page.comments != false %}
 {% endraw %}
 
-{% raw %}
-  In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
-{% endraw %}
+#previous link
+{{ “{% if article.previous? “}}%}
+    {{ “{{article | previous_article | link_to_article  “}}}}
+{{ “{% else “}}%}
+  <a href="/">home</a>
+{{ “{% endif “}}%}
 
-{{ "{% this " }}%}
 
 ```
 <div id="disqus_thread"></div>
