@@ -18,7 +18,7 @@ disqus_shortname: username
 
 Create a file called disqus.html in Jekyll’s _includes folder and add your Disqus Universal Embed Code in between a {% if page.comments %} and a {% endif %} liquid tag.
 
-{% highlight html %}{% if page.comments != false %}{% endhighlight %}
+{% raw %}{% if page.comments != false %}{% endraw %}
 ```
 <div id="disqus_thread"></div>
 <script>
