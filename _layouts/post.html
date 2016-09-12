@@ -26,4 +26,6 @@ published: true
     {% endfor %}
   </ul>
 </div>
-{% include disqus.html %}
+{% if site.disqus_shortname %}
+  {% include disqus.html %}
+{% endif %}
