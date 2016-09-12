@@ -2,7 +2,7 @@
 published: true
 layout: post
 comments: true
-title:  "Set up a blog with Jekyll and Github Pages"
+title:  "Adding Disqus to Jekyll"
 date:   2016-09-12
 categories:
   - Howtos
