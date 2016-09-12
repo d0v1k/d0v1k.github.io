@@ -18,19 +18,7 @@ disqus_shortname: username
 
 Create a file called disqus.html in Jekyll’s _includes folder and add your Disqus Universal Embed Code in between a {% if page.comments %} and a {% endif %} liquid tag.
 
-{% raw %}
-{% if page.comments != false %}
-{% endraw %}
-
-{%highlight html%}
-#previous link
-{{ "{{ “{% if article.previous? “" }}}}%}
-	{{ "{{ “{{article | previous_article | link_to_article  “" }}}}}}
-{{ "{{ “{% else “" }}}}%}
-  <a href="/">home</a>
-{{ "{{ “{% endif “" }}}}%}
-{% endhighlight %}
-
+`{% if page.comments != false %}`
 
 ```
 <div id="disqus_thread"></div>
