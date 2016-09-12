@@ -18,7 +18,7 @@ disqus_shortname: username
 
 Create a file called disqus.html in Jekyll’s _includes folder and add your Disqus Universal Embed Code in between a {% if page.comments %} and a {% endif %} liquid tag.
 
-<code>{{ "{% if page.comments != false %}}}}</code>
+{% if page.comments != false %}
 
 {{ "{% this " }}%}
 
