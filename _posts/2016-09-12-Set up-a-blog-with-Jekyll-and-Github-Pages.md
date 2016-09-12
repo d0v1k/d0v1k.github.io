@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-comments: false
+comments: true
 title:  "Set up a blog with Jekyll and Github Pages"
 date:   2016-09-12
 categories:
