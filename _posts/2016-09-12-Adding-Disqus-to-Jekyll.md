@@ -18,6 +18,7 @@ disqus_shortname: username
 
 Create a file called disqus.html in Jekyll’s _includes folder and add your Disqus Universal Embed Code in between a {% if page.comments %} and a {% endif %} liquid tag.
 
+```
 {% if page.comments != false %}
 <div id="disqus_thread"></div>
 <script>
@@ -40,13 +41,16 @@ Create a file called disqus.html in Jekyll’s _includes folder and add your Dis
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% endif %}
+```
 
 The included if statement allows you to disable Disqus comments on any blog post. You simply add comments: false in that posts front-matter.
 
 Finally, open your post.html file and add the following liquid include tag just after the end </div> tag. This will load Disqus comments right underneath your blog posts.
 
+```
 {% if site.data.theme.disqus_shortname %}
 {% include disqus.html %}
 {% endif %}
+```
 
 Refresh your page click on one of your post you should see your Disqus comments
