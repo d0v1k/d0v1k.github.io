@@ -3,5 +3,3 @@ highlighter: rouge
 url: http://d0v1k.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]
-# Disqus post comments
-disqus_shortname: d0v1k
