@@ -42,9 +42,3 @@ Edit _config.yml and change as below
 Time to start jekyll application, replace below mentioned ip address with your ip.
 
 	sudo bundle exec jekyll server --host youripaddress
-
-
-
-
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
