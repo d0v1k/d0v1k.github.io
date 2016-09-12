@@ -8,7 +8,7 @@ categories:
   - Howtos
   - blog
 ---
-Update Server
+Update Ubuntu Repository
 
 	sudo apt-get update
 	sudo apt-get upgrade -y 
