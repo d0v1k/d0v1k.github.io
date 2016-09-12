@@ -45,9 +45,9 @@ The included if statement allows you to disable Disqus comments on any blog post
 
 Finally, open your post.html file and add the following liquid include tag just after the end </div> tag. This will load Disqus comments right underneath your blog posts.
 
-       {% if site.data.theme.disqus_shortname %}
-         {% include disqus.html %}
-       {% endif %}
+    {% if site.data.theme.disqus_shortname %}
+      {% include disqus.html %}
+     {% endif %}
 
 Refresh your page click on one of your post you should see your Disqus comments
 
