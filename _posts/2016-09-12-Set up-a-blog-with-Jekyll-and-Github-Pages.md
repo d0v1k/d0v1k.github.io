@@ -1,12 +1,6 @@
 ---
 published: true
 ---
----
-layout: post
-title: Set up a blog with Jekyll and Github Pages
-categories:
-- blog
----
 Update Ubuntu
 
 	sudo apt update
