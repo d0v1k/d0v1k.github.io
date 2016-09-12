@@ -22,6 +22,10 @@ Create a file called disqus.html in Jekyll’s _includes folder and add your Dis
 {% if page.comments != false %}
 {% endraw %}
 
+{% raw %}
+  In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+{% endraw %}
+
 ```
 <div id="disqus_thread"></div>
 <script>
