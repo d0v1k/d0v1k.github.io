@@ -2,7 +2,7 @@
 published: true
 layout: post
 comments: true
-title:  "Set up a blog with Jekyll and Github Pages.md"
+title:  "Set up a blog with Jekyll and Github Pages"
 date:   2016-09-12 14:35:57 +0200
 categories: Howtos
   - blog
