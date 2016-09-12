@@ -33,4 +33,4 @@ show_disclaimer: true
 show_atom_feed: true
 
 # Disqus post comments
-disqus_shortname: d0v1k
+disqus_shortname:
