@@ -20,6 +20,7 @@ Create a file called disqus.html in Jekyll’s _includes folder and add your Dis
 
 {% if page.comments != false %}
 {{ "{% this " }}%}
+
 ```
 <div id="disqus_thread"></div>
 <script>
