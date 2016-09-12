@@ -1,5 +1,8 @@
 ---
 published: false
+layout: post
+categories:
+  - blog
 ---
 ### Update Server
 
