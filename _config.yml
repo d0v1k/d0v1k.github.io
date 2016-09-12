@@ -1,5 +1,5 @@
 # General Jekyll Config
 highlighter: rouge
-url: http://ldm.micinthe.com
+url: http://d0v1k.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]
