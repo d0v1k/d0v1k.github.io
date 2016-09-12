@@ -1,6 +1,7 @@
 ---
 published: true
 layout: post
+comments: true
 categories:
   - blog
 ---
