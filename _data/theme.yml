@@ -31,6 +31,3 @@ show_disclaimer: true
 
 # Toggle link/icon to view atom feed (/atom.xml) in sidebar
 show_atom_feed: true
-
-# Disqus post comments
-disqus_shortname: d0v1k
