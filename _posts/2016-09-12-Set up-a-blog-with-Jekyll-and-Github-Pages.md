@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ---
 layout: post
@@ -7,45 +7,44 @@ title: Set up a blog with Jekyll and Github Pages
 categories:
 - blog
 ---
-
 Update Ubuntu
 
-<code>sudo apt update</code>
+	sudo apt update
 
 Install Ruby package
 
-<code>sudo apt install ruby-full</code>
+    sudo apt install ruby-full
 
 Install Jekyll package with gem
 
-<code>sudo gem install jekyll bundler</code>
+	sudo gem install jekyll bundler
 
 Verify version of jekyll to ensure whether it is installed or not
 
-<code>sudo jekyll -v</code>
+	sudo jekyll -v
 
 Change to home directory
 
-<code>cd /home/yourusername</code>
+	cd /home/yourusername
 
 Create a new website
 
-<code>sudo jekyll new yournewsite</code>
+	sudo jekyll new yournewsite
 
 The above command will create a new web directory under /home/yourusername
 
-<code>cd /home/yourusername/jekyllsite
-sudo bundle install</code>
+	cd /home/yourusername/jekyllsite
+	sudo bundle install
 
 *If css not loading
 
 Edit _config.yml and change as below
 
-<code>url: "http://youripaddress:4000"</code>
+	url: "http://youripaddress:4000"
 
 Time to start jekyll application, replace below mentioned ip address with your ip.
 
-<code>sudo bundle exec jekyll server --host youripaddress</code>
+	sudo bundle exec jekyll server --host youripaddress
 
 
 
