@@ -7,10 +7,6 @@ date:   2016-09-12 14:35:57 +0200
 categories: Howtos
   - blog
 ---
-
-
-categories: jekyll disqus
-
 Update Ubuntu
 
 	sudo apt update
