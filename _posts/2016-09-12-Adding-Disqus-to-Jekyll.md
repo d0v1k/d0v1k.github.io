@@ -22,12 +22,13 @@ Create a file called disqus.html in Jekyll’s _includes folder and add your Dis
 {% if page.comments != false %}
 {% endraw %}
 
-#previous link
-{{ “{% if article.previous? “}}%}
-    {{ “{{article | previous_article | link_to_article  “}}}}
-{{ “{% else “}}%}
-  <a href="/">home</a>
-{{ “{% endif “}}%}
+{% highlight html %}
+{% raw %}{% if post.excerpt %}{% endraw %}
+{% raw %}{{ post.excerpt }}{% endraw %}
+{% raw %}{% else %}{% endraw %}
+{% raw %}{{ post.content | truncatewords:30 }}{% endraw %}
+{% raw %}{% endif %}{% endraw %}
+{% endhighlight %}
 
 
 ```
