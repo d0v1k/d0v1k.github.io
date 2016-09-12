@@ -4,7 +4,8 @@ layout: post
 comments: true
 title:  "Set up a blog with Jekyll and Github Pages"
 date:   2016-09-12
-categories: Howtos
+categories:
+  - Howtos
   - blog
 ---
 Update Ubuntu
