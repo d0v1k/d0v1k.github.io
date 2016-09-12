@@ -4,12 +4,12 @@ layout: post
 categories:
   - blog
 ---
-### Update Server
+Update Server
 
 	sudo apt-get update
 	sudo apt-get upgrade -y 
  
-### Install PostgreSQL Server
+Install PostgreSQL Server
 
 	sudo apt-get install postgresql -y
  
@@ -18,40 +18,40 @@ Creating the ODOO PostgreSQL User
 	sudo su - postgres -c "createuser -s odoo"
 	sudo systemctl status postgresql
  
-### Install Dependencies
+Install Dependencies
 
-### Install tool packages
+Install tool packages
 
 	sudo apt-get install wget subversion git bzr bzrtools python-pip gdebi-core -y
  
-### Install python packages
+Install python packages
 
 	sudo apt-get install python-dateutil python-feedparser python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-mock python-unittest2 python-jinja2 python-pypdf python-decorator python-requests python-passlib python-pil -y
  
-### Install python dev/dependencies packages
+Install python dev/dependencies packages
  
 	sudo apt-get install libpq-dev libxml2-dev libxslt1-dev python-dev python-dev libldap2-dev libsasl2-dev libssl-dev -y
 	sudo -H pip install --upgrade pip
 
-### Install python libraries
+Install python libraries
 
 	sudo -H pip install gdata psycogreen ofxparse
 	sudo -H pip install suds
 
-### Install other required packages
+Install other required packages
  
 	sudo apt-get install node-clean-css -y
 	sudo apt-get install node-less -y
 	sudo apt-get install python-gevent -y
 
-### Install wkhtml and place shortcuts on correct place for ODOO 9
+Install wkhtml and place shortcuts on correct place for ODOO 9
 
 	wget http://download.gna.org/wkhtmltopdf/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
 	sudo gdebi --n wkhtmltox-0.12.1_linux-trusty-amd64.deb
 	sudo ln -s /usr/local/bin/wkhtmltopdf /usr/bin
 	sudo ln -s /usr/local/bin/wkhtmltoimage /usr/bin
 
-### Install ODOO
+Install ODOO
 
 	sudo adduser --system --shell=/bin/bash --home=/opt/odoo --gecos 'ODOO' --group odoo
 	sudo passwd odoo
@@ -60,35 +60,35 @@ The user should also be added to the sudo'ers group.
 
 	sudo adduser odoo sudo 
  
-### Create Log directory
+Create Log directory
  
 	sudo mkdir /var/log/odoo
 	sudo chown odoo:odoo /var/log/odoo
 
-### Installing ODOO Server
+Installing ODOO Server
  
 	sudo git clone --depth 1 --branch 9.0 https://www.github.com/odoo/odoo /opt/odoo
 
-### Installing libraries
+Installing libraries
  
 	sudo apt-get install nodejs npm
 	sudo npm install -g less
 	sudo npm install -g less-plugin-clean-css
 
-### Create symlink for node
+Create symlink for node
 
 	sudo ln -s /usr/bin/nodejs /usr/bin/node
  
-### Create custom module directory
+Create custom module directory
 
 	sudo su odoo -c "mkdir /opt/odoo/custom"
 	sudo su odoo -c "mkdir /opt/odoo/custom/addons"
 
-### Setting permissions on home folder
+Setting permissions on home folder
 
 	sudo chown -R odoo:odoo /opt/odoo/* 
  
-### Create server config file
+Create server config file
 
 	sudo mkdir /etc/odoo
 	sudo chown odoo:odoo /etc/odoo
@@ -96,7 +96,7 @@ The user should also be added to the sudo'ers group.
 	sudo chown odoo:odoo /etc/odoo/odoo-server.conf
 	sudo chmod 640 /etc/odoo/odoo-server.conf
  
-### Change server config file
+Change server config file
 
 	sudo sed -i s/"db_user = .*"/"db_user = odoo"/g /etc/odoo/odoo-server.conf
 	sudo sed -i s/"; admin_passwd.*"/"admin_passwd = MY768WFUNtkT@"/g /etc/odoo/odoo-server.conf
@@ -105,7 +105,7 @@ The user should also be added to the sudo'ers group.
 	sudo su root -c "echo 'data_dir = /opt/odoo/data' >> /etc/odoo/odoo-server.conf"
 	sudo su root -c "echo 'addons_path=/opt/odoo/addons,/opt/odoo/custom/addons' >> /etc/odoo/odoo-server.conf"
  
-### Create startup file
+Create startup file
 
 Add to /opt/odoo/start.sh
 
@@ -114,7 +114,7 @@ Add to /opt/odoo/start.sh
  
 	sudo chmod 755 /opt/odoo/start.sh
 
-### Adding ODOO as a deamon
+Adding ODOO as a deamon
 
 	cat <<EOF > ~/odoo-server
 	#!/bin/sh
@@ -189,16 +189,16 @@ Add to /opt/odoo/start.sh
 	exit 0
 	EOF
  
-### Security Init File
+Security Init File
 
 	sudo mv ~/odoo-server /etc/init.d/odoo-server
 	sudo chmod 755 /etc/init.d/odoo-server
 	sudo chown root: /etc/init.d/odoo-server
 
-### Start ODOO on Startup
+Start ODOO on Startup
 
 	sudo update-rc.d odoo-server defaults
 
-### Starting Odoo Service"
+Starting Odoo Service"
 
 	sudo su root -c "/etc/init.d/odoo-server start"
