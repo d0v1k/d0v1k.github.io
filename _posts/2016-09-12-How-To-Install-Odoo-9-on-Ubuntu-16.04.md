@@ -2,7 +2,9 @@
 published: true
 layout: post
 comments: true
-categories:
+title:  "How To Install Odoo 9 on Ubuntu-16.04"
+date:   2016-09-12
+categories: Howtos
   - blog
 ---
 Update Server
