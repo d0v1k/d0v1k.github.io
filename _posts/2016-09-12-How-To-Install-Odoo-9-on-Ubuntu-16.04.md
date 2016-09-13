@@ -117,7 +117,7 @@ Add to /opt/odoo/start.sh
 	/opt/odoo/openerp-server --config=/etc/odoo/odoo-server.conf
  
 	sudo chmod 755 /opt/odoo/start.sh
-
+```
 Adding ODOO as a deamon
 
 	cat <<EOF > ~/odoo-server
@@ -192,7 +192,7 @@ Adding ODOO as a deamon
 	esac
 	exit 0
 	EOF
- 
+``` 
 Security Init File
 
 	sudo mv ~/odoo-server /etc/init.d/odoo-server
