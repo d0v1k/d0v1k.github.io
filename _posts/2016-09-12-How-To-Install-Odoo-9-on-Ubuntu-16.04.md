@@ -113,14 +113,18 @@ Create startup file
 
 Add to /opt/odoo/start.sh
 
-	#!/bin/sh
-	/opt/odoo/openerp-server --config=/etc/odoo/odoo-server.conf
+```
+#!/bin/sh
+/opt/odoo/openerp-server --config=/etc/odoo/odoo-server.conf
  
-	sudo chmod 755 /opt/odoo/start.sh
+sudo chmod 755 /opt/odoo/start.sh
+```
 
 Adding ODOO as a deamon
 
 {% highlight bash %}
+cat <<EOF > ~/odoo-server
+#!/bin/sh
 #Short-Description:EnterpriseBusinessApplications
 #Description:ODOOCommunityApplications
 ###ENDINITINFO
