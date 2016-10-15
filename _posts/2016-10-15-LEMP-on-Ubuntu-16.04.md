@@ -170,7 +170,8 @@ Example of adding certbot certificate to nginx server block:
 
 Make the following changes to the server block:
 
- sudo vi /etc/nginx/sites-available/pma.micinthe.com
+    sudo vi /etc/nginx/sites-available/pma.micinthe.com
+
 <pre>
  [..]
  server {
