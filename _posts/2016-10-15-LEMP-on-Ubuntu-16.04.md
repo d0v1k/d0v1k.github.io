@@ -47,7 +47,7 @@ Configure Nginx to Use the PHP
         sudo vi /etc/nginx/sites-available/default
 
 Make change as below    
-
+<pre>
  server {
      listen 80 default_server;
      listen [::]:80 default_server;
@@ -70,7 +70,7 @@ Make change as below
          deny all;
      }
  }
-
+</pre>
 Test your configuration file for syntax errors by typing:
 
         sudo nginx -t
