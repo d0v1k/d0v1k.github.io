@@ -2,7 +2,7 @@
 published: true
 layout: post
 comments: true
-title:  "Set up a blog with Jekyll and Github Pages"
+title:  "Install LEMP on Ubuntu 16.04"
 date:   2016-10-15
 categories:
   - Howtos
@@ -73,40 +73,41 @@ Make change as below
 
 Test your configuration file for syntax errors by typing:
 
- sudo nginx -t
+        sudo nginx -t
  
  Create a PHP File to Test Configuration
  
-  sudo vi /var/www/html/info.php
+        sudo vi /var/www/html/info.php
   
  Paste the following lines into the new file
  
- <?php
- phpinfo();
- ?>
+        <?php
+        phpinfo();
+        ?>
  
 Save and close the file.
 
 Go to the URL below to test PHP
 
- http://server_domain_or_IP/info.php
+        http://server_domain_or_IP/info.php
  
  
 Install PhpMyAdmin
 
- sudo apt-get install phpmyadmin php-mbstring php-gettext
+        sudo apt-get install phpmyadmin php-mbstring php-gettext
  
 Create a symbolic link from the installation files to our Nginx document root directory by typing this:
  
- sudo ln -s /usr/share/phpmyadmin /var/www/pma.micinthe.com
+        sudo ln -s /usr/share/phpmyadmin /var/www/pma.micinthe.com
  
 Create PhpMyadmin Server Block 
  
- sudo vi /etc/nginx/sites-available/pma.micinthe.com
+        sudo vi /etc/nginx/sites-available/pma.micinthe.com
  
 Paste:
- 
- server {
+
+<pre>
+server {
         listen 80;
         server_name pma.micinthe.com;
         root /var/www/pma.micinthe.com;
@@ -141,35 +142,36 @@ Paste:
                  fastcgi_pass 127.0.0.1:9000;
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         }
- }
+}
+</pre>
 
 Save and close the file.
  
 Create a symbolic link between the sites-available directory and the sites-enabled directory. 
 
- sudo ln -s /etc/nginx/sites-available/pma.micinthe.com /etc/nginx/sites-enabled/pma.micinthe.com
+        sudo ln -s /etc/nginx/sites-available/pma.micinthe.com /etc/nginx/sites-enabled/pma.micinthe.com
  
 Delete the default nginx server block:
 
- sudo rm /etc/nginx/sites-enabled/default
+        sudo rm /etc/nginx/sites-enabled/default
 
 Install Let's Encrypt
 
- mkdir /opt/certbot
- cd /opt/certbot
- wget https://dl.eff.org/certbot-auto
- chmod a+x ./certbot-auto
+        mkdir /opt/certbot
+        cd /opt/certbot
+        wget https://dl.eff.org/certbot-auto
+        chmod a+x ./certbot-auto
 
 Run cerbot-auto to generate certificate
 
- ./certbot-auto certonly
+        ./certbot-auto certonly
 
 Example of adding certbot certificate to nginx server block:
 
 Make the following changes to the server block:
 
  sudo vi /etc/nginx/sites-available/pma.micinthe.com
-
+<pre>
  [..]
  server {
         listen         80;
@@ -187,3 +189,4 @@ Make the following changes to the server block:
         ssl_certificate /etc/letsencrypt/live/pma.micinthe.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/pma.micinthe.com/privkey.pem;
  [..]
+</pre>
