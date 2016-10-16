@@ -31,7 +31,7 @@ Networking
  
 Edit your /etc/hosts and add the following line to it:
 
-    10.100.10.1     servername micinthe.com pal.micinthe.com
+    10.100.10.1     servername example.com pal.example.com
 
 Save the file. That's it.
  
@@ -58,12 +58,12 @@ Run cerbot-auto to generate certificate
 
 Declaring host
 
-    cp -a /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.avail/micinthe.cfg.lua
+    cp -a /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.avail/example.cfg.lua
 
 Change the settings for VirtualHost and enabled so you have:
 <pre>
 [..]
- VirtualHost "micinthe.com"
+ VirtualHost "example.com"
          enabled = true -- Remove this line to enable this host
 [..]
 </pre>
@@ -76,8 +76,8 @@ For example:
 
 <pre>
  ssl = {
-   certificate = "/etc/letsencrypt/live/micinthe.com/fullchain.pem";
-   key = "/etc/letsencrypt/live/micinthe.com/privkey.pem"
+   certificate = "/etc/letsencrypt/live/example.com/fullchain.pem";
+   key = "/etc/letsencrypt/live/example.com/privkey.pem"
  }
 </pre>
 
@@ -89,13 +89,13 @@ Note for letsencrypt users: You'll need to give permissions to prosody user to t
 
 Now create the symbolic link in« /etc/prosody/conf.d/ » with:
 
-    ln -sf /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.d/micinthe.cfg.lua
+    ln -sf /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.d/example.cfg.lua
 
 Create users
 
 Creating user accounts is done with the command « prosodyctl »
 
-    prosodyctl adduser dovik@micinthe.com
+    prosodyctl adduser user1@example.com
 
 Install Prosody modules
 
