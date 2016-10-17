@@ -61,12 +61,12 @@ Declaring host
     cp -a /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.avail/example.cfg.lua
 
 Change the settings for VirtualHost and enabled so you have:
-<pre>
+```
 [..]
  VirtualHost "example.com"
          enabled = true -- Remove this line to enable this host
 [..]
-</pre>
+```
 
 SSL certificate:
 
@@ -74,12 +74,12 @@ Make sure you configure Prosody to use the 'fullchain.pem' file as certificate.
 
 For example:
 
-<pre>
+```
  ssl = {
    certificate = "/etc/letsencrypt/live/example.com/fullchain.pem";
    key = "/etc/letsencrypt/live/example.com/privkey.pem"
  }
-</pre>
+```
 
 Note for letsencrypt users: You'll need to give permissions to prosody user to the certificates.
 
@@ -108,21 +108,21 @@ Install Modules
 
 Useful Modules (Mobile support)
 
-<pre>
- cp -v /opt/prosody-modules/mod_carbons/mod_carbons.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_smacks/mod_smacks.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_smacks_offline/mod_smacks_offline.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_csi/mod_csi.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_filter_chatstates/mod_filter_chatstates.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_throttle_presence/mod_throttle_presence.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_http_upload/mod_http_upload.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_blocking/mod_blocking.lua /usr/lib/prosody/modules/
- cp -v /opt/prosody-modules/mod_roster_allinall/mod_roster_allinall.lua /usr/lib/prosody/modules/
-<pre>
+```
+cp -v /opt/prosody-modules/mod_carbons/mod_carbons.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_smacks/mod_smacks.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_smacks_offline/mod_smacks_offline.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_csi/mod_csi.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_filter_chatstates/mod_filter_chatstates.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_throttle_presence/mod_throttle_presence.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_http_upload/mod_http_upload.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_blocking/mod_blocking.lua /usr/lib/prosody/modules/
+cp -v /opt/prosody-modules/mod_roster_allinall/mod_roster_allinall.lua /usr/lib/prosody/modules/
+```
 
 Add to /etc/prosody/prosody.cfg.lua
 
-<pre>
+```
                 "groups"; -- Enable Shared roster support 
                 "carbons";
                 "smacks";
@@ -133,7 +133,7 @@ Add to /etc/prosody/prosody.cfg.lua
                 "http_upload";
                 "blocking";
                 "roster_allinall";
-</pre>
+```
 
 Restart Prosody
 
