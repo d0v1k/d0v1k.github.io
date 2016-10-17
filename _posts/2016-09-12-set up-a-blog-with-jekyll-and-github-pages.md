@@ -47,7 +47,7 @@ Time to start jekyll application, replace below mentioned ip address with your i
 
 	sudo bundle exec jekyll server --host youripaddress
 
-## How to host on github
+### How to host on github
 
 Create a New Repository
 
