@@ -107,10 +107,9 @@ Let's now generate a HTTP basic authentication file. This example creates a user
     mkdir /etc/nginx/auth
 
     htpasswd -c /etc/nginx/auth/webdav example
-
-New password: 
-Re-type new password: 
-Adding password for user user
+    New password: 
+    Re-type new password: 
+    Adding password for user user
 
 This file has to be readable by the user running your webserver. For security reasons, we'll make it readable only by him :
 
