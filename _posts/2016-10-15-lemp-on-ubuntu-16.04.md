@@ -71,6 +71,7 @@ Make change as below
      }
  }
 </pre>
+
 Test your configuration file for syntax errors by typing:
 
     sudo nginx -t
