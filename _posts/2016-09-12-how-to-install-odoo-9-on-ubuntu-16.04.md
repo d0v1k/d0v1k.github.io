@@ -10,8 +10,8 @@ categories:
 ---
 Update Ubuntu Repository
 
-```sudo apt-get update
-sudo apt-get upgrade -y```
+	sudo apt-get update
+	sudo apt-get upgrade -y
  
 Install PostgreSQL Server
 
@@ -122,7 +122,7 @@ sudo chmod 755 /opt/odoo/start.sh
 
 Adding ODOO as a deamon
 
-{% highlight bash %}
+```bash
 cat <<EOF > ~/odoo-server
 #!/bin/sh
 #Short-Description:EnterpriseBusinessApplications
@@ -187,7 +187,7 @@ exit1
 esac
 exit0
 EOF
-{% endhighlight %}
+```
 
 Security Init File
 
