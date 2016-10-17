@@ -5,7 +5,7 @@ comments: true
 title:  "How to install Odoo 9 on Ubuntu 16.04"
 date:   2016-09-12
 categories:
-  - Howtos
+  - ERP
   - Odoo9
 ---
 Update Ubuntu Repository
