@@ -9,11 +9,13 @@ categories:
   - Web Server
 ---
 
+### Let's Encrypt
+
 Let's create a configuration file for letsencrypt:
 
     mkdir /etc/letsencrypt
 
-<pre>
+```
 echo 'rsa-key-size = 3072
 renew-by-default
 text = True
@@ -22,21 +24,21 @@ renew-by-default = True
 authenticator = webroot
 email = admin@example.com
 webroot-path = /var/www/letsencrypt/' > /etc/letsencrypt/cli.ini
-</pre>
+```
 
 We also need to create the directory structure where letsencrypt ACME challenge temporary files will be stored :
 
     mkdir -p /var/www/letsencrypt/.well-known
 
-Nginx configuration
+### Nginx configuration
 
 We now need to configure nginx by adding the following in the /etc/nginx/sites-available/default file, anywhere in the server{} block that is configured to listen on port 80.
 
-<pre>
+```
 location /.well-known/acme-challenge {
   root /var/www/letsencrypt;
 }
-</pre>
+```
 
 Let's make sure that we haven't done anything wrong :
 
@@ -51,7 +53,7 @@ If that's the case, you can safely reload the nginx daemon :
 
     nginx -s reload 
 
-Certificate request
+### Certificate request
 
 Now that letsencrypt and nginx are properly configured, we can request our certificate from letsencrypt :
 
@@ -61,7 +63,7 @@ Please do modify www.example.com by your server's FQDN, and please note that the
 
 If everything goes well, your certificates will be generated and stored in the /etc/letsencrypt folder.
 
-WebDAV configuration
+### WebDAV configuration
 
 Now that we've obtained our certificate from letsencrypt, we can begin configuring nginx.
 
@@ -71,7 +73,7 @@ First, we need to comment two SSL directives from the default nginx configuratio
 
 The the following content to your server block:
 
-<pre>
+```
 ssl_session_timeout 1d;
 ssl_session_cache shared:SSL:50m;
 ssl_session_tickets off;
@@ -94,7 +96,7 @@ ssl_stapling on;
 ssl_stapling_verify on;
 resolver 127.0.0.1 valid=300s;
 resolver_timeout 5s;
-</pre>
+```
 
 We now need to generate a dhparam.pem file :
 
@@ -119,7 +121,7 @@ This file has to be readable by the user running your webserver. For security re
 
 We now have to create a /etc/nginx/sites-available/example file that will contain our actual webdav configuration. This example makes a data folder stored in /var/www/ accessible.
 
-<pre>
+```
 server {
   listen 80;
   listen [::]:80;
@@ -159,7 +161,7 @@ server {
   }
 
 }
-</pre>
+```
 
 The last thing we have to do is to create a symlink so that nginx will load our configuration :
 
