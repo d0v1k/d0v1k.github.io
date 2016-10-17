@@ -5,11 +5,11 @@ comments: true
 title:  "How to build a personal XMPP Server with Prosody"
 date:   2016-09-12
 categories:
-  - Howtos
-  - Jabber/XMPP server
+  - XMPP-server
+  - Prosody
 ---
 
-Install Prosody
+### Install Prosody
 
 Add Prosodys repository
 
@@ -27,7 +27,7 @@ Then to install the Prosody package simply run:
 
     apt-get install prosody lua-dbi-mysql
 
-Networking
+### Networking
  
 Edit your /etc/hosts and add the following line to it:
 
@@ -45,7 +45,7 @@ Prosody also comes with its own utility for controlling the XMPP server, called 
 
 Prosody is running with PID 1820
 
-Install Let's Encrypt
+### Install Let's Encrypt
 
     mkdir /opt/certbot
     cd /opt/certbot
@@ -91,13 +91,13 @@ Now create the symbolic link in« /etc/prosody/conf.d/ » with:
 
     ln -sf /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.d/example.cfg.lua
 
-Create users
+### Create users
 
 Creating user accounts is done with the command « prosodyctl »
 
     prosodyctl adduser user1@example.com
 
-Install Prosody modules
+### Install Prosody modules
 
 Clone Repository
 
