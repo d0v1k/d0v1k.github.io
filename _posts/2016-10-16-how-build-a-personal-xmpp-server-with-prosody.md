@@ -56,19 +56,18 @@ Run cerbot-auto to generate certificate
 
     ./certbot-auto certonly
 
-Declaring host
+### Declaring host
 
     cp -a /etc/prosody/conf.avail/example.com.cfg.lua /etc/prosody/conf.avail/example.cfg.lua
 
 Change the settings for VirtualHost and enabled so you have:
+
 ```
-[..]
  VirtualHost "example.com"
          enabled = true -- Remove this line to enable this host
-[..]
 ```
 
-SSL certificate:
+### SSL certificate:
 
 Make sure you configure Prosody to use the 'fullchain.pem' file as certificate.
 
