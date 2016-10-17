@@ -81,10 +81,12 @@ Test your configuration file for syntax errors by typing:
     sudo vi /var/www/html/info.php
   
  Paste the following lines into the new file
- 
-    <?php
-    phpinfo();
-    ?>
+
+```php 
+<?php
+phpinfo();
+?>
+```
  
 Save and close the file.
 
@@ -144,7 +146,7 @@ server {
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         }
 }
-```nginx
+```
 
 Save and close the file.
  
