@@ -47,6 +47,7 @@ Configure Nginx to Use the PHP
     sudo vi /etc/nginx/sites-available/default
 
 Make change as below    
+
 ```nginx
  server {
      listen 80 default_server;
