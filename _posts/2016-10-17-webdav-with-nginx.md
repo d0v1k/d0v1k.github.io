@@ -26,9 +26,9 @@ Run cerbot-auto to generate certificate
 
     ./certbot-auto certonly
 
-_Select 2 Spin up a temporary webserver (standalone)
-Enter you email address
-Enter Domain name_
+    _Select 2 Spin up a temporary webserver (standalone)
+    Enter you email address
+    Enter Domain name_
 
 ### Create webdav virtualhost
 
@@ -73,10 +73,6 @@ server {
 
   root /var/www;
 
-  ssl_session_timeout 1d;
-  ssl_session_cache shared:SSL:50m;
-  ssl_session_tickets off;
-
   ssl_certificate /etc/letsencrypt/live/www.example.com/fullchain.pem;
   ssl_certificate_key /etc/letsencrypt/live/www.example.com/privkey.pem;
   ssl_trusted_certificate /etc/letsencrypt/live/www.example.com/fullchain.pem;
@@ -90,11 +86,6 @@ server {
   add_header Strict-Transport-Security max-age=15768000;
   add_header X-Frame-Options DENY;
   add_header X-Content-Type-Options nosniff;
-
-  ssl_stapling on;
-  ssl_stapling_verify on;
-  resolver 127.0.0.1 valid=300s;
-  resolver_timeout 5s;
 
   location / {
     index index.html;
