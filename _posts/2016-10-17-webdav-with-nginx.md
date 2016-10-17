@@ -9,7 +9,12 @@ categories:
   - Web Server
 ---
 
-### Let's Encrypt
+### Install Let's Encrypt
+
+    mkdir /opt/certbot
+    cd /opt/certbot
+    wget https://dl.eff.org/certbot-auto
+    chmod a+x ./certbot-auto
 
 Let's create a configuration file for letsencrypt:
 
