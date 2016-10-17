@@ -5,7 +5,7 @@ comments: true
 title:  "Install LEMP on Ubuntu 16.04"
 date:   2016-10-15
 categories:
-  - Web Server
+  - Webserver
   - Nginx
 ---
 
