@@ -5,8 +5,8 @@ comments: true
 title:  "Set up a blog with Jekyll and Github Pages"
 date:   2016-09-12
 categories:
-  - static-site-generator
-  - jekyll
+  - Static-Site-Generator
+  - Jekyll
 ---
 Update Ubuntu
 
