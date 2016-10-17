@@ -44,7 +44,6 @@ Generate a dhparam.pem file :
 Let’s now generate a HTTP basic authentication file. This example creates a user named example :
 
     mkdir /etc/nginx/auth
-
     htpasswd -c /etc/nginx/auth/webdav example
     New password: 
     Re-type new password: 
@@ -87,11 +86,9 @@ server {
   add_header X-Frame-Options DENY;
   add_header X-Content-Type-Options nosniff;
 
-  location / {
-    index index.html;
-  }
-
   location /data {
+    autoindex on;
+    autoindex_exact_size off;
     client_body_temp_path /tmp;
     dav_methods PUT DELETE MKCOL COPY MOVE;
     #dav_ext_methods PROPFIND OPTIONS;
@@ -99,7 +96,7 @@ server {
     dav_access user:r group:r;
 
     auth_basic "Restricted access";
-    auth_basic_user_file auth/webdav;
+    auth_basic_user_file /etc/nginx/auth/webdav;
   }
 
 }
@@ -115,4 +112,3 @@ Like before, let’s make sure our configuration is correct and then reload the 
     nginx -s reload
 
 That’s it for the WebDAV configuration server-side !
-
