@@ -47,7 +47,7 @@ Configure Nginx to Use the PHP
     sudo vi /etc/nginx/sites-available/default
 
 Make change as below    
-<pre>
+```nginx
  server {
      listen 80 default_server;
      listen [::]:80 default_server;
@@ -70,7 +70,7 @@ Make change as below
          deny all;
      }
  }
-</pre>
+```
 
 Test your configuration file for syntax errors by typing:
 
@@ -107,7 +107,7 @@ Create PhpMyadmin Server Block
  
 Paste:
 
-<pre>
+```nginx
 server {
         listen 80;
         server_name pma.micinthe.com;
@@ -144,7 +144,7 @@ server {
                  fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         }
 }
-</pre>
+```nginx
 
 Save and close the file.
  
@@ -173,8 +173,7 @@ Make the following changes to the server block:
 
     sudo vi /etc/nginx/sites-available/pma.micinthe.com
 
-<pre>
- [..]
+```nginx
  server {
         listen         80;
         server_name    pma.micinthe.com;
@@ -190,5 +189,4 @@ Make the following changes to the server block:
  
         ssl_certificate /etc/letsencrypt/live/pma.micinthe.com/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/pma.micinthe.com/privkey.pem;
- [..]
-</pre>
+```
