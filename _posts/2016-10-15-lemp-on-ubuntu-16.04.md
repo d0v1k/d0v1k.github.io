@@ -16,11 +16,11 @@ Update Ubuntu Repository & Upgrade Packages
 
 Install Nginx
 
-    sudo service nginx start
+    sudo apt-get install nginx
  
-Install MySQL
+Install MariaDB
 
-    sudo apt-get install mysql-server
+    sudo apt-get install mariadb-server
  
 To secure the installation, we can run a simple security script that will ask whether we want to modify some insecure defaults. Begin the script by typing:
 
