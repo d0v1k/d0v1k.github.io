@@ -102,19 +102,19 @@ Install PhpMyAdmin
  
 Create a symbolic link from the installation files to our Nginx document root directory by typing this:
  
-    sudo ln -s /usr/share/phpmyadmin /var/www/pma.micinthe.com
+    sudo ln -s /usr/share/phpmyadmin /var/www/pma.example.com
  
 Create PhpMyadmin Server Block 
  
-    sudo vi /etc/nginx/sites-available/pma.micinthe.com
+    sudo vi /etc/nginx/sites-available/pma.example.com
  
 Paste:
 
 ```nginx
 server {
         listen 80;
-        server_name pma.micinthe.com;
-        root /var/www/pma.micinthe.com;
+        server_name pma.example.com;
+        root /var/www/pma.example.com;
  
         index index.php index.html;
         location = /favicon.ico {
@@ -153,7 +153,7 @@ Save and close the file.
  
 Create a symbolic link between the sites-available directory and the sites-enabled directory. 
 
-    sudo ln -s /etc/nginx/sites-available/pma.micinthe.com /etc/nginx/sites-enabled/pma.micinthe.com
+    sudo ln -s /etc/nginx/sites-available/pma.example.com /etc/nginx/sites-enabled/pma.example.com
  
 Delete the default nginx server block:
 
@@ -174,22 +174,22 @@ Example of adding certbot certificate to nginx server block:
 
 Make the following changes to the server block:
 
-    sudo vi /etc/nginx/sites-available/pma.micinthe.com
+    sudo vi /etc/nginx/sites-available/pma.example.com
 
 ```nginx
  server {
         listen         80;
-        server_name    pma.micinthe.com;
+        server_name    pma.example.com;
         return         301 https://$server_name$request_uri;
  }
  
  server {
         listen 443 ssl http2;
-        server_name pma.micinthe.com;
+        server_name pma.example.com;
         # add Strict-Transport-Security to prevent man in the middle attacks
         add_header Strict-Transport-Security "max-age=31536000";
-        root /var/www/pma.micinthe.com;
+        root /var/www/pma.example.com;
  
-        ssl_certificate /etc/letsencrypt/live/pma.micinthe.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/pma.micinthe.com/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/pma.example.com/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/pma.example.com/privkey.pem;
 ```
