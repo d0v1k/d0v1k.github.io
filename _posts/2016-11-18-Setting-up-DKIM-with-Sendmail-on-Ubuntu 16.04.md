@@ -236,8 +236,8 @@ Edit Postfix main configuration file.
 
 Comment `inet_protocols = all` and add `inet_protocols = ipv4` for postfix to use ipv4
 
-#inet_protocols = all
-inet_protocols = ipv4
+    #inet_protocols = all
+    inet_protocols = ipv4
 
 Add the following lines after inet_protocols = ipv4 section.
 
