@@ -9,6 +9,8 @@ categories:
   - Email Server
 ---
 
+### Setting up DKIM
+
 We are going to use Postfix to send mail.
 
 Remove Sendmail and install Postfix
@@ -125,3 +127,13 @@ The final configuration file is as follows:
     # Hosts to ignore when verifying signatures
     ExternalIgnoreList  /etc/opendkim/trusted.hosts
     InternalHosts       /etc/opendkim/trusted.hosts
+
+Save and close the file.
+
+### Create Signing table, key table and trusted hosts file
+
+Create a directory structure for OpenDKIM
+
+    sudo mkdir /etc/opendkim
+    
+    sudo mkdir /etc/opendkim/keys
