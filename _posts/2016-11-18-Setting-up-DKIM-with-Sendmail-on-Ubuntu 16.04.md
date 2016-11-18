@@ -189,6 +189,20 @@ Generate keys using opendkim-genkey tool.
 
     sudo opendkim-genkey -b 2048 -d your-domain.com -D /etc/opendkim/keys/your-domain.com -s default -v
     
-The above command will create 2048 bits keys. <I>-d (domain)</I> specifies the domain. -D (directory) specifies the directory where the keys will be stored and we use default as the selector (-s), also known as the name. Once the command is executed, the private key will be default.private and default.txt will be the TXT record that contains public key.
+The above command will create 2048 bits keys. -d (domain) specifies the domain. -D (directory) specifies the directory where the keys will be stored and we use default as the selector (-s), also known as the name. Once the command is executed, the private key will be default.private and default.txt will be the TXT record that contains public key.
 
 Make opendkim as the owner of the private key.
+
+### Add Public Key in DNS Records
+
+Display the public key
+
+    sudo cat /etc/opendkim/keys/your-domain.com/default.txt
+
+The string after the p parameter is the public key.
+
+    default._domainkey      IN      TXT     ( "v=DKIM1; k=rsa; t=y; "
+          "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpQiJlYJgf+apjD1lE+GEf4x0DXV46wpn5JJF6m/wRz3fZJx5t/4rv+KmWhLDENPfxZK97GpWji2Zp7PQ7NYUVqXoU5hRkHIQSMwn/fngsg9tay7FMolQMMoEgqzSLI5m0dXblBQ9z/2nzm8UB6vgxH7bYeQ6B6+rvLe+qvHgI4wIDAQAB" )  ; ----- DKIM key default for example.com
+
+In you DNS manager, create a TXT record, enter default._domainkey in the name field. Then copy everything in the parentheses and paste into the value field. Delete all double quotes and white spaces.
+
