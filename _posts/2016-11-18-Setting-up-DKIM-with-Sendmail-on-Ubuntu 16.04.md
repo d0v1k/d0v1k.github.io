@@ -137,3 +137,54 @@ Create a directory structure for OpenDKIM
     sudo mkdir /etc/opendkim
     
     sudo mkdir /etc/opendkim/keys
+
+Change owner from root to opendkim and make sure only opendkim user can read and write to the keys directory.
+
+    sudo chown -R opendkim:opendkim /etc/opendkim
+    
+    sudo chmod go-rw /etc/opendkim/keys
+    
+Create the signing table.
+
+    sudo nano /etc/opendkim/signing.table
+
+Add this line to the file. Replace your-domain.com with your real domain.
+
+    *@your-domain.com default._domainkey.your-domain
+    
+Then create the key table.
+
+    sudo vi /etc/opendkim/key.table
+
+Add the following line. Replace your-domain with your actual domain.
+
+    default._domainkey.your-domain    your-domain.com:default:/etc/opendkim/keys/your-domain.com/default.private
+
+Save and close the file.
+
+Configure Trusted Hosts
+
+Create the file.
+
+    sudo vi /etc/opendkim/trusted.hosts
+
+Add the following lines to the newly created file.
+
+    127.0.0.1
+    localhost
+    
+    *.your-domain.com
+    
+The above means that messages coming from the above IP addresses and domains will be trusted and signed.
+
+### Generate Private/Public Keypair
+
+Since DKIM is used to sign outgoing messages and verify incoming messages, we need to generate a private key for signing and a public key for remote verifier. Public key will be published in DNS.
+
+Create a separate folder for the domain.
+
+    sudo mkdir /etc/opendkim/keys/your-domain.com
+
+Generate keys using opendkim-genkey tool.
+
+    sudo opendkim-genkey -b 2048 -d your-domain.com -D /etc/opendkim/keys/your-domain.com -s default -v
