@@ -34,6 +34,14 @@ Uncomment the following lines. Replace simple with <b>relaxed/simple</b>.
     Canonicalization   simple
     Mode               sv
     SubDomains         no
+  
+Then add the following lines below below <b>SubDomains  no</b>.
+
+    AutoRestart         yes
+    AutoRestartRate     10/1M
+    Background          yes
+    DNSTimeout          5
+    SignatureAlgorithm  rsa-sha256
  
 Add the following lines at the end of this the file.
     
