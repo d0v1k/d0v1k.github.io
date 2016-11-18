@@ -9,7 +9,7 @@ categories:
   - Email Server
 ---
 
-# We are going to use Postfix to send mail.
+#### We are going to use Postfix to send mail.
 
 ### Remove Sendmail and install Postfix
 
