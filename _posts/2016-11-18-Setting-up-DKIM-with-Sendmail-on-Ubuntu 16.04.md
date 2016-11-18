@@ -11,31 +11,31 @@ categories:
 
 We are going to use Postfix to send mail.
 
-#### Remove Sendmail and install Postfix
+Remove Sendmail and install Postfix
 
     sudo apt purge sendmail && sudo apt install postfix
 
-#### Install OpenDKIM
+Install OpenDKIM
 
     sudo apt install opendkim opendkim-tools
  
-#### Then add postfix user to opendkim group
+Then add postfix user to opendkim group
 
     sudo gpasswd -a postfix opendkim
 
-#### Edit OpenDKIM main configuration file.
+Edit OpenDKIM main configuration file.
 
     sudo vi /etc/opendkim.conf
 
-#### Add the following lines below.
+Add the following lines below.
 
-#### Uncomment the following lines. Replace simple with <b>relaxed/simple</b>.
+Uncomment the following lines. Replace simple with <b>relaxed/simple</b>.
 
     Canonicalization   simple
     Mode               sv
     SubDomains         no
  
-#### Add the following lines at the end of this the file.
+Add the following lines at the end of this the file.
     
     #OpenDKIM user
     # Remember to add user postfix to group opendkim
