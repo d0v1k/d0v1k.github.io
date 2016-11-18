@@ -206,3 +206,12 @@ The string after the p parameter is the public key.
 
 In you DNS manager, create a TXT record, enter default._domainkey in the name field. Then copy everything in the parentheses and paste into the value field. Delete all double quotes and white spaces.
 
+Test your configuration
+
+Enter the following command on Ubuntu 16.04 server to test your key.
+
+    sudo opendkim-testkey -d your-domain.com -s default -vvv
+
+If everything is OK, you will see
+
+key OK
