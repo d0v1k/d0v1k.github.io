@@ -188,3 +188,7 @@ Create a separate folder for the domain.
 Generate keys using opendkim-genkey tool.
 
     sudo opendkim-genkey -b 2048 -d your-domain.com -D /etc/opendkim/keys/your-domain.com -s default -v
+    
+The above command will create 2048 bits keys. <I>-d (domain)</I> specifies the domain. -D (directory) specifies the directory where the keys will be stored and we use default as the selector (-s), also known as the name. Once the command is executed, the private key will be default.private and default.txt will be the TXT record that contains public key.
+
+Make opendkim as the owner of the private key.
