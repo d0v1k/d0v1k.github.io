@@ -215,3 +215,57 @@ Enter the following command on Ubuntu 16.04 server to test your key.
 If everything is OK, you will see
 
 key OK
+
+### Connect Postfix to OpenDKIM
+
+Create a directory to hold the OpenDKIM socket file and only allow opendkim user and postfix group to access it.
+
+Modify /etc/defaults/opendkim, change SOCKET option to postfix chroot location
+
+    SOCKET="local:/var/spool/postfix/var/run/opendkim/opendkim.sock"
+
+You will have to create directory /var/spool/postfix/var/run/opendkim and change its permission
+
+    sudo mkdir -p /var/spool/postfix/var/run/opendkim
+    
+    sudo chown opendkim:opendkim /var/spool/postfix/var/run/opendkim
+    
+Edit Postfix main configuration file.
+
+    sudo vi /etc/postfix/main.cf
+
+Comment `inet_protocols = all` and add `inet_protocols = ipv4` for postfix to use ipv4
+
+#inet_protocols = all
+inet_protocols = ipv4
+
+Add the following lines after inet_protocols = ipv4 section.
+
+    # Milter configuration
+    # OpenDKIM
+    milter_default_action = accept
+    milter_protocol = 2
+    smtpd_milters = local:/opendkim/opendkim.sock
+    non_smtpd_milters = local:/opendkim/opendkim.sock
+
+Save and close the file. Then restart opendkim and postfix service.
+
+    sudo systemctl restart opendkim
+    
+    sudo systemctl restart postfix
+    
+DKIM Check
+
+Install Mailx package to send email 
+
+ sudo apt install mailx
+
+Send a test email to your Gmail account to see if DKIM test is passed.
+
+     echo "This will go into the body of the mail." | mail -s "Hello world" your-account@gmail.com
+
+You can also send to mail-tester.com email address to test
+
+If you click the show original button in Gmail, you should see
+
+dkim=pass
