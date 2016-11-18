@@ -258,7 +258,7 @@ DKIM Check
 
 Install Mailx package to send email 
 
- sudo apt install mailx
+    sudo apt install mailx
 
 Send a test email to your Gmail account to see if DKIM test is passed.
 
