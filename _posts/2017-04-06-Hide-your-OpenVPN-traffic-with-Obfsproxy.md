@@ -13,29 +13,29 @@ categories:
 
 Set UFW to allow SSH:
 
-   sudo ufw allow ssh
+    sudo ufw allow ssh
 
 We use OpenVPN over TCP, so UFW must also allow TCP traffic over port 443.
 
-   sudo ufw allow 443/tcp
+    sudo ufw allow 443/tcp
 
 Allow traffic over port 21194 for obfsproxy 
 
-   sudo ufw allow 21194/tcp
+    sudo ufw allow 21194/tcp
 
 The UFW forwarding policy needs to be set as well. We'll do this in the primary configuration file.
 
-   sudo vi /etc/default/ufw
+    sudo vi /etc/default/ufw
 
 Make the following change:
 
-   DEFAULT_FORWARD_POLICY="ACCEPT"
+    DEFAULT_FORWARD_POLICY="ACCEPT"
 
 Save and exit.
 
 Next we will add additional UFW rules for network address translation and IP masquerading of connected clients.
 
-   sudo  vi /etc/ufw/before.rules
+    sudo  vi /etc/ufw/before.rules
 
  Next, add the area in Bold for OPENVPN RULES:
 <pre> 
@@ -62,8 +62,8 @@ Save and exit.
 
 With the changes made to UFW, we can now enable it. Enter into the command prompt:
 
-   ufw enable
+    ufw enable
 
 To check UFW's primary firewall rules:
 
-   ufw status
+    ufw status
