@@ -85,6 +85,7 @@ Note for letsencrypt users: You'll need to give permissions to prosody user to t
     chown -R root:ssl-cert /etc/letsencrypt
     chmod g+r -R /etc/letsencrypt
     chmod g+x /etc/letsencrypt/{archive,live}
+    sudo addgroup prosody ssl-cert
 
 Now create the symbolic link in« /etc/prosody/conf.d/ » with:
 
